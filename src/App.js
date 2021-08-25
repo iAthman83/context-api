@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
 function App() {
+  const [counter, setCounter] = useState(0);
+  const [init, setInit] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container text-center my-5">
+      <div>
+        <h1>Simple counter</h1>
+        <div>
+          <input
+            type="number"
+            value={init}
+            onChange={(e) => setInit(parseInt(e.target.value))}
+          />
+          <button>initialize</button>
+        </div>
+        <button style={{ margin: "0px 10px" }}>5 Less</button>
+        {counter}
+        <button style={{ margin: "0px 10px" }}>5 More</button>
+      </div>
     </div>
   );
 }
